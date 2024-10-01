@@ -3,6 +3,9 @@ _pycache_/
 *.py[cod]
 *$py.class
 
+README_local.md
+src/Model/rf_model.pkl
+
 # C extensions
 *.so
 

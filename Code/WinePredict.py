@@ -16,12 +16,21 @@ from sklearn.ensemble import RandomForestClassifier
 import pickle
 import joblib
 import yaml
+import os
+
+# Print the current working directory
+print(f"Current working directory: {os.getcwd()}")
+
+
+
 
 #path config
-path_config = '../Config/config.yaml'
+path_config = './Config/config.yaml'
 
 #safeload config
+# path_config = 'D:/Projects/Winepredictor/Config/config.yaml'
 config = yaml.safe_load(open(path_config))
+print(config)
 
 filename = config['data_source']['directory'] + config['data_source']['filename']
 
@@ -188,9 +197,12 @@ print('Test Recall score:', recall_score(y_test, y_pred))
 print('Average Recall score Tuning:', np.mean(rf_tuned_score))
 print('Test Recall score Tuning:', recall_score(y_test, y_pred_tuned))
 
+# Print the current working directory
+print(f"Current working directory: {os.getcwd()}")
+
 # Save Random Forest model
 model_name = 'rf_model.pkl'
-model_path = '../src/Model/{}'.format(model_name)
+model_path = './src/Model/{}'.format(model_name)
 # Save the trained model
 with open(model_path, 'wb') as f:
     pickle.dump(rf_tuned, f)
